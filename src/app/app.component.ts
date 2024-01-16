@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Vector2 } from './vector2';
+import { Confetti } from './confetti';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'confetti-angular';
+export class AppComponent implements AfterViewInit {
+ 
+  ngAfterViewInit(): void {
+    const confetti = new Confetti("confetti");
+    confetti.start();
+  }
 }
